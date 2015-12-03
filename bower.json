@@ -1,0 +1,22 @@
+{
+  "name": "extjs-extend",
+  "version": "0.0.1",
+  "homepage": "https://github.com/myweishanli/extjs-extend",
+  "authors": [
+    "'myweishanli' <'myweishanli@gmail.com'>"
+  ],
+  "description": "Extjs 5 extend",
+  "main": "./Application.js",
+  "keywords": [
+    "extjs",
+    "extend"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
