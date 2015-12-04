@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/2.
  */
-Ext.define('DP.dp.base.FormController', {
+Ext.define('DP.base.FormController', {
     extend: 'Ext.app.ViewController',
 
     requires: [

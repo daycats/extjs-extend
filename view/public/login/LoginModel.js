@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/3.
  */
-Ext.define('DP.dp.view.public.login.LoginModel', {
+Ext.define('DP.view.public.login.LoginModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.login',
 

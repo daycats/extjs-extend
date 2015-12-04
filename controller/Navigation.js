@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.controller.Navigation', {
+Ext.define('DP.controller.Navigation', {
     extend: 'Ext.app.Controller',
 
     config: {
@@ -69,7 +69,7 @@ Ext.define('DP.dp.controller.Navigation', {
             action.resume();
         } else {
             //Ext.Msg.alert('Tab Not Found', 'Tab with id or index "<b>' + id + '</b>" was not found!');
-            Ext.namespace('DP').getApplication().setConfig('defaultToken', id);
+            Ext.namespace(DP.name).getApplication().setConfig('defaultToken', id);
 
             //child not found, stop action
             action.stop();

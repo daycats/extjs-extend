@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/9.
  */
-Ext.define('DP.dp.model.admin.MenuUrlLink', {
+Ext.define('DP.model.admin.MenuUrlLink', {
     extend: 'Ext.data.Model',
 
     idProperty: 'link_id',

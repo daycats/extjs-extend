@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.base.tree.Panel', {
+Ext.define('DP.base.tree.Panel', {
     extend: 'Ext.tree.Panel',
     xtype: 'base-treepanel',
 

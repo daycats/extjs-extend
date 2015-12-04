@@ -3,7 +3,7 @@
  * "autoCreateViewport" property. That setting automatically applies the "viewport"
  * plugin to promote that instance of this class to the body element.
  */
-Ext.define('DP.dp.view.main.MainController', {
+Ext.define('DP.view.main.MainController', {
     extend: 'Ext.app.ViewController',
 
     alias: 'controller.main',
@@ -16,7 +16,7 @@ Ext.define('DP.dp.view.main.MainController', {
         this.callParent(arguments);
 
         if (isGuest) {
-            Ext.create('DP.dp.view.public.login.Login').show();
+            Ext.create('DP.view.public.login.Login').show();
         }
     },
 
@@ -41,6 +41,6 @@ Ext.define('DP.dp.view.main.MainController', {
      * 注销
      */
     onLogout: function () {
-        Ext.namespace('DP').getApplication().fireEvent('logout');
+        Ext.namespace(DP.name).getApplication().fireEvent('logout');
     }
 });

@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.view.admin.group.Group', {
-    extend: 'DP.dp.component.container.Container',
+Ext.define('DP.view.admin.group.Group', {
+    extend: 'DP.component.container.Container',
 
     requires: [
         'Ext.button.Button',
@@ -11,13 +11,13 @@ Ext.define('DP.dp.view.admin.group.Group', {
         'Ext.layout.container.Form',
         'Ext.layout.container.HBox',
         'Ext.toolbar.Separator',
-        'DP.dp.base.grid.Panel',
-        'DP.dp.base.grid.column.Text',
-        'DP.dp.component.form.GridSimpleForm',
-        'DP.dp.component.grid.column.Status',
-        'DP.dp.store.admin.Group',
-        'DP.dp.view.admin.group.GroupController',
-        'DP.dp.view.admin.group.GroupModel'
+        'DP.base.grid.Panel',
+        'DP.base.grid.column.Text',
+        'DP.component.form.GridSimpleForm',
+        'DP.component.grid.column.Status',
+        'DP.store.admin.Group',
+        'DP.view.admin.group.GroupController',
+        'DP.view.admin.group.GroupModel'
     ],
 
     viewModel: {
@@ -186,7 +186,7 @@ Ext.define('DP.dp.view.admin.group.Group', {
     ],
 
     initComponent: function () {
-        this.items[0].store = Ext.create('DP.dp.store.admin.Group');
+        this.items[0].store = Ext.create('DP.store.admin.Group');
         this.callParent(arguments);
     }
 });

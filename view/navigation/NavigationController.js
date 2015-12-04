@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/3.
  */
-Ext.define('DP.dp.view.navigation.NavigationController', {
+Ext.define('DP.view.navigation.NavigationController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.navigation',
 
@@ -12,7 +12,7 @@ Ext.define('DP.dp.view.navigation.NavigationController', {
 
     init: function () {
         var me = this,
-            app = Ext.namespace('DP').getApplication();
+            app = Ext.namespace(DP.name).getApplication();
         // 监听添加tab事件
         app.on('addTab', function (data) {
             me.activeTab(data);
@@ -120,7 +120,7 @@ Ext.define('DP.dp.view.navigation.NavigationController', {
                     }
                     if (window['needActiveTab']) {
                         window['needActiveTab'] = false;
-                        var defaultToken = Ext.namespace('DP').getApplication().getConfig('defaultToken');
+                        var defaultToken = Ext.namespace(DP.name).getApplication().getConfig('defaultToken');
                         if (defaultToken) {
                             var node = me.getByTabId(records, defaultToken);
                             if (node) {
@@ -129,7 +129,7 @@ Ext.define('DP.dp.view.navigation.NavigationController', {
                         }
                     }
                 } catch (e) {
-                    me.alert(data.msg);
+                    me.alert(e);
                 }
             },
             failure: function (response) {

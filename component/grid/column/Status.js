@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/23.
  */
-Ext.define('DP.dp.component.grid.column.Status', {
+Ext.define('DP.component.grid.column.Status', {
     extend: 'Ext.grid.column.Column',
     alias: 'widget.statuscolumn',
     width: 80,

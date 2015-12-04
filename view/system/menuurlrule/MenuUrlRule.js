@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/8.
  */
-Ext.define('DP.dp.view.system.menuurlrule.MenuUrlRule', {
-    extend: 'DP.dp.component.container.Container',
+Ext.define('DP.view.system.menuurlrule.MenuUrlRule', {
+    extend: 'DP.component.container.Container',
     xtype: 'menuurlrule',
 
     requires: [
@@ -12,13 +12,13 @@ Ext.define('DP.dp.view.system.menuurlrule.MenuUrlRule', {
         'Ext.layout.container.Form',
         'Ext.layout.container.HBox',
         'Ext.toolbar.Separator',
-        'DP.dp.base.grid.Panel',
-        'DP.dp.base.grid.column.Text',
-        'DP.dp.component.form.GridSimpleForm',
-        'DP.dp.component.grid.column.Status',
-        'DP.dp.store.admin.MenuUrlRule',
-        'DP.dp.view.system.menuurlrule.MenuUrlRuleController',
-        'DP.dp.view.system.menuurlrule.MenuUrlRuleModel'
+        'DP.base.grid.Panel',
+        'DP.base.grid.column.Text',
+        'DP.component.form.GridSimpleForm',
+        'DP.component.grid.column.Status',
+        'DP.store.admin.MenuUrlRule',
+        'DP.view.system.menuurlrule.MenuUrlRuleController',
+        'DP.view.system.menuurlrule.MenuUrlRuleModel'
     ],
 
     viewModel: {
@@ -174,7 +174,7 @@ Ext.define('DP.dp.view.system.menuurlrule.MenuUrlRule', {
 
     initComponent: function () {
         var me = this;
-        this.items[0].store = Ext.create('DP.dp.store.admin.MenuUrlRule', {
+        this.items[0].store = Ext.create('DP.store.admin.MenuUrlRule', {
             proxy: {
                 extraParams: {
                     url_id: me.params['url_id']

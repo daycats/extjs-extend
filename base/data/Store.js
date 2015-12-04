@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/14.
  */
-Ext.define('DP.dp.base.data.Store', {
+Ext.define('DP.base.data.Store', {
     extend: 'Ext.data.Store',
 
     proxy: {

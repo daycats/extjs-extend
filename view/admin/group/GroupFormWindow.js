@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.view.admin.group.GroupFormWindow', {
-    extend: 'DP.dp.base.window.Window',
+Ext.define('DP.view.admin.group.GroupFormWindow', {
+    extend: 'DP.base.window.Window',
 
     requires: [
         'Ext.form.Panel',
@@ -14,8 +14,8 @@ Ext.define('DP.dp.view.admin.group.GroupFormWindow', {
         'Ext.layout.container.VBox',
         'Ext.panel.Panel',
         'Ext.tree.Panel',
-        'DP.dp.component.form.field.TreeSearch',
-        'DP.dp.store.admin.GroupMenu'
+        'DP.component.form.field.TreeSearch',
+        'DP.store.admin.GroupMenu'
     ],
 
     width: 800,
@@ -25,7 +25,7 @@ Ext.define('DP.dp.view.admin.group.GroupFormWindow', {
     maximizable: false,
 
     initComponent: function () {
-        var store = Ext.create('DP.dp.store.admin.GroupMenu', {
+        var store = Ext.create('DP.store.admin.GroupMenu', {
             root: {
                 id: 'src',
                 expanded: false

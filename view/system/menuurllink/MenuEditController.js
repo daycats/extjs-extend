@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/9.
  */
-Ext.define('DP.dp.view.system.menuurllink.MenuEditController', {
-    extend: 'DP.dp.base.ViewController',
+Ext.define('DP.view.system.menuurllink.MenuEditController', {
+    extend: 'DP.base.ViewController',
     alias: 'controller.menu-edit',
 
     idProperty: 'url_id',

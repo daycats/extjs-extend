@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.view.admin.group.GroupModel', {
+Ext.define('DP.view.admin.group.GroupModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.group',
 

@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/8/21.
  */
-Ext.define('DP.dp.view.admin.user.User', {
-    extend: 'DP.dp.component.container.Container',
+Ext.define('DP.view.admin.user.User', {
+    extend: 'DP.component.container.Container',
 
     requires: [
         'Ext.button.Button',
@@ -12,14 +12,14 @@ Ext.define('DP.dp.view.admin.user.User', {
         'Ext.layout.container.Form',
         'Ext.layout.container.HBox',
         'Ext.toolbar.Separator',
-        'DP.dp.base.grid.Panel',
-        'DP.dp.base.grid.column.Text',
-        'DP.dp.component.form.GridSimpleForm',
-        'DP.dp.component.grid.column.Status',
-        'DP.dp.store.admin.GroupAll',
-        'DP.dp.store.admin.User',
-        'DP.dp.view.admin.user.UserController',
-        'DP.dp.view.admin.user.UserModel'
+        'DP.base.grid.Panel',
+        'DP.base.grid.column.Text',
+        'DP.component.form.GridSimpleForm',
+        'DP.component.grid.column.Status',
+        'DP.store.admin.GroupAll',
+        'DP.store.admin.User',
+        'DP.view.admin.user.UserController',
+        'DP.view.admin.user.UserModel'
     ],
 
     viewModel: {
@@ -269,7 +269,7 @@ Ext.define('DP.dp.view.admin.user.User', {
     ],
 
     initComponent: function () {
-        this.items[0].store = Ext.create('DP.dp.store.admin.User');
+        this.items[0].store = Ext.create('DP.store.admin.User');
         this.callParent(arguments);
     }
 });

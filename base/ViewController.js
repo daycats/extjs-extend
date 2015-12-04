@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/26.
  */
-Ext.define('DP.dp.base.ViewController', {
+Ext.define('DP.base.ViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.view',
 

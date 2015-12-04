@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/3.
  */
-Ext.define('DP.dp.view.navigation.NavigationModel', {
+Ext.define('DP.view.navigation.NavigationModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.navigation',
 

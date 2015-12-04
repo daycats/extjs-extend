@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/3.
  */
-Ext.define('DP.dp.view.public.login.Login', {
+Ext.define('DP.view.public.login.Login', {
     extend: 'Ext.window.Window',
     xtype: 'login',
     reference: 'login',
@@ -10,9 +10,9 @@ Ext.define('DP.dp.view.public.login.Login', {
         'Ext.form.field.Checkbox',
         'Ext.form.field.Text',
         'Ext.layout.container.VBox',
-        'DP.dp.base.form.Panel',
-        'DP.dp.view.public.login.LoginController',
-        'DP.dp.view.public.login.LoginModel'
+        'DP.base.form.Panel',
+        'DP.view.public.login.LoginController',
+        'DP.view.public.login.LoginModel'
     ],
 
     viewModel: {

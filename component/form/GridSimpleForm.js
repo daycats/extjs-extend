@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/23.
  */
-Ext.define('DP.dp.component.form.GridSimpleForm', {
+Ext.define('DP.component.form.GridSimpleForm', {
     extend: 'Ext.form.Panel',
     alias: 'widget.gridsimpleform',
     listeners: {

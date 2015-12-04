@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/9.
  */
-Ext.define('DP.dp.view.system.menuurllink.MenuUrlLinkFormWindow', {
-    extend: 'DP.dp.base.window.Window',
+Ext.define('DP.view.system.menuurllink.MenuUrlLinkFormWindow', {
+    extend: 'DP.base.window.Window',
 
     requires: [
         'Ext.form.Panel',
@@ -10,7 +10,7 @@ Ext.define('DP.dp.view.system.menuurllink.MenuUrlLinkFormWindow', {
         'Ext.form.field.ComboBox',
         'Ext.form.field.Hidden',
         'Ext.layout.container.VBox',
-        'DP.dp.store.admin.MenuUrlAll'
+        'DP.store.admin.MenuUrlAll'
     ],
 
     width: 400,

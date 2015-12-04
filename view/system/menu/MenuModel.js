@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.view.system.menu.MenuModel', {
+Ext.define('DP.view.system.menu.MenuModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.menu',
 

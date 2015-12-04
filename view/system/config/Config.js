@@ -1,12 +1,12 @@
 /**
  * Created by shanli on 2015/9/2.
  */
-Ext.define('DP.dp.view.system.config.Config', {
-    extend: 'DP.dp.base.form.Panel',
+Ext.define('DP.view.system.config.Config', {
+    extend: 'DP.base.form.Panel',
 
     requires: [
-        'DP.dp.view.system.config.ConfigController',
-        'DP.dp.view.system.config.ConfigModel',
+        'DP.view.system.config.ConfigController',
+        'DP.view.system.config.ConfigModel',
         'Ext.form.FieldSet',
         'Ext.form.RadioGroup',
         'Ext.form.field.Checkbox',

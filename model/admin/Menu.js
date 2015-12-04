@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/30.
  */
-Ext.define('DP.dp.model.admin.Menu', {
+Ext.define('DP.model.admin.Menu', {
     extend: 'Ext.data.TreeModel',
 
     fields: [

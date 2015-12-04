@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/1.
  */
-Ext.define('DP.dp.component.form.field.TreeSearch', {
+Ext.define('DP.component.form.field.TreeSearch', {
     extend: 'Ext.form.field.Text',
     xtype: 'treesearch',
 

@@ -1,14 +1,14 @@
 /**
  * Created by shanli on 2015/9/11.
  */
-Ext.define('DP.dp.base.form.HtmlEditorImageFormWindow', {
-    extend: 'DP.dp.base.window.Window',
+Ext.define('DP.base.form.HtmlEditorImageFormWindow', {
+    extend: 'DP.base.window.Window',
 
     requires: [
         'Ext.form.Panel',
         'Ext.form.field.File',
         'Ext.layout.container.Form',
-        'DP.dp.base.form.HtmlEditorImageFormWindowController'
+        'DP.base.form.HtmlEditorImageFormWindowController'
     ],
 
     controller: 'html-editor-image-form-window',

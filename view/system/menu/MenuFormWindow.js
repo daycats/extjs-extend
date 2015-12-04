@@ -1,11 +1,11 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.view.system.menu.MenuFormWindow', {
-    extend: 'DP.dp.base.window.Window',
+Ext.define('DP.view.system.menu.MenuFormWindow', {
+    extend: 'DP.base.window.Window',
 
     requires: [
-        'DP.dp.store.admin.MenuAll',
+        'DP.store.admin.MenuAll',
         'Ext.form.Panel',
         'Ext.form.RadioGroup',
         'Ext.form.field.ComboBox',

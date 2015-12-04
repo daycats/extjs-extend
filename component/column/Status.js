@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.component.column.Status', {
+Ext.define('DP.component.column.Status', {
     extend: 'Ext.grid.column.Column',
     xtype: 'mycolumnstatus',
     width: 60,

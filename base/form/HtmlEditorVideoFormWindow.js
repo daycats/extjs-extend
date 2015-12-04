@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/11.
  */
-Ext.define('DP.dp.base.form.HtmlEditorVideoFormWindow', {
-    extend: 'DP.dp.base.window.Window',
+Ext.define('DP.base.form.HtmlEditorVideoFormWindow', {
+    extend: 'DP.base.window.Window',
 
     requires: [
         'Ext.button.Segmented',
@@ -13,7 +13,7 @@ Ext.define('DP.dp.base.form.HtmlEditorVideoFormWindow', {
         'Ext.form.field.Text',
         'Ext.layout.container.Column',
         'Ext.layout.container.VBox',
-        'DP.dp.base.form.HtmlEditorVideoFormWindowController'
+        'DP.base.form.HtmlEditorVideoFormWindowController'
     ],
 
     viewModel: {

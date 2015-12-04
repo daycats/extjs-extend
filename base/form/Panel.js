@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/2.
  */
-Ext.define('DP.dp.base.form.Panel', {
+Ext.define('DP.base.form.Panel', {
     extend: 'Ext.form.Panel',
     alias: 'widget.base-form-panel',
 

@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/30.
  */
-Ext.define('DP.dp.base.grid.Panel', {
+Ext.define('DP.base.grid.Panel', {
     extend: 'Ext.grid.Panel',
     xtype: 'base-gridpanel',
 
@@ -42,7 +42,7 @@ Ext.define('DP.dp.base.grid.Panel', {
                                 me.store.loadPage(1);
                             }
                         },
-                        store: 'DP.dp.store.Pagination'
+                        store: 'DP.store.Pagination'
                     }, '条'
                 ]
             }

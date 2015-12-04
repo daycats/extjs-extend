@@ -1,16 +1,16 @@
 /**
  * Created by shanli on 2015/9/3.
  */
-Ext.define('DP.dp.view.navigation.Navigation', {
+Ext.define('DP.view.navigation.Navigation', {
     extend: 'Ext.panel.Panel',
 
     requires: [
         'Ext.layout.container.Accordion',
         'Ext.tree.Panel',
-        'DP.dp.component.form.field.TreeSearch',
-        'DP.dp.store.menu.Tree',
-        'DP.dp.view.navigation.NavigationController',
-        'DP.dp.view.navigation.NavigationModel'
+        'DP.component.form.field.TreeSearch',
+        'DP.store.menu.Tree',
+        'DP.view.navigation.NavigationController',
+        'DP.view.navigation.NavigationModel'
     ],
 
     xtype: 'navigation',
@@ -24,7 +24,7 @@ Ext.define('DP.dp.view.navigation.Navigation', {
     layout: 'accordion',
     initComponent: function () {
         var me = this,
-            store = Ext.create('DP.dp.store.menu.Tree', {
+            store = Ext.create('DP.store.menu.Tree', {
                 root: {
                     id: 'src',
                     expanded: isGuest ? false : true

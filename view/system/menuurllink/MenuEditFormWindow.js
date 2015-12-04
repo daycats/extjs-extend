@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/9.
  */
-Ext.define('DP.dp.view.system.menuurllink.MenuEditFormWindow', {
-    extend: 'DP.dp.base.window.Window',
+Ext.define('DP.view.system.menuurllink.MenuEditFormWindow', {
+    extend: 'DP.base.window.Window',
 
     requires: [
         'Ext.form.Panel',
@@ -12,8 +12,8 @@ Ext.define('DP.dp.view.system.menuurllink.MenuEditFormWindow', {
         'Ext.form.field.Text',
         'Ext.form.field.TextArea',
         'Ext.layout.container.VBox',
-        'DP.dp.store.RequestMethod',
-        'DP.dp.view.system.menuurllink.MenuEditController'
+        'DP.store.RequestMethod',
+        'DP.view.system.menuurllink.MenuEditController'
     ],
 
     controller: 'menu-edit',

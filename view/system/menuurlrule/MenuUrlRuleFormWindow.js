@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/8.
  */
-Ext.define('DP.dp.view.system.menuurlrule.MenuUrlRuleFormWindow', {
-    extend: 'DP.dp.base.window.Window',
+Ext.define('DP.view.system.menuurlrule.MenuUrlRuleFormWindow', {
+    extend: 'DP.base.window.Window',
 
     requires: [
         'Ext.form.Panel',

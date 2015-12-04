@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/15.
  */
-Ext.define('DP.dp.base.container.Container', {
+Ext.define('DP.base.container.Container', {
     extend: 'Ext.Container',
 
     requires: [

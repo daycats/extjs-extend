@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/8.
  */
-Ext.define('DP.dp.view.system.menuurl.MenuUrlFormWindow', {
-    extend: 'DP.dp.base.window.Window',
+Ext.define('DP.view.system.menuurl.MenuUrlFormWindow', {
+    extend: 'DP.base.window.Window',
 
     requires: [
         'Ext.form.Panel',
@@ -12,7 +12,7 @@ Ext.define('DP.dp.view.system.menuurl.MenuUrlFormWindow', {
         'Ext.form.field.Text',
         'Ext.form.field.TextArea',
         'Ext.layout.container.VBox',
-        'DP.dp.store.RequestMethod'
+        'DP.store.RequestMethod'
     ],
 
     width: 400,

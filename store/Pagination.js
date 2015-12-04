@@ -10,7 +10,7 @@
             data.push([limit * 1]);
         });
     }
-    Ext.define('DP.dp.store.Pagination', {
+    Ext.define('DP.store.Pagination', {
         extend: 'Ext.data.ArrayStore',
         fields: ['pageSize'],
         data: data

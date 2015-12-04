@@ -1,13 +1,13 @@
 /**
  * Created by shanli on 2015/8/24.
  */
-Ext.define('DP.dp.view.admin.user.UserFormWindow', {
-    extend: 'DP.dp.base.window.Window',
+Ext.define('DP.view.admin.user.UserFormWindow', {
+    extend: 'DP.base.window.Window',
 
     requires: [
-        'DP.dp.component.form.field.TreeSearch',
-        'DP.dp.store.admin.GroupAll',
-        'DP.dp.store.admin.UserMenu',
+        'DP.component.form.field.TreeSearch',
+        'DP.store.admin.GroupAll',
+        'DP.store.admin.UserMenu',
         'Ext.form.Panel',
         'Ext.form.RadioGroup',
         'Ext.form.field.ComboBox',
@@ -28,7 +28,7 @@ Ext.define('DP.dp.view.admin.user.UserFormWindow', {
     defaultFocus: 'username',
 
     initComponent: function () {
-        var store = Ext.create('DP.dp.store.admin.UserMenu', {
+        var store = Ext.create('DP.store.admin.UserMenu', {
             root: {
                 id: 'src',
                 expanded: false

@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/7.
  */
-Ext.define('DP.dp.base.grid.column.Url', {
+Ext.define('DP.base.grid.column.Url', {
     extend: 'Ext.grid.column.Column',
     xtype: 'urlcolumn',
 

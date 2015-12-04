@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/9.
  */
-Ext.define('DP.dp.view.system.menuurllink.MenuUrlLink', {
-    extend: 'DP.dp.component.container.Container',
+Ext.define('DP.view.system.menuurllink.MenuUrlLink', {
+    extend: 'DP.component.container.Container',
     xtype: 'menuurllink',
 
     requires: [
@@ -13,13 +13,13 @@ Ext.define('DP.dp.view.system.menuurllink.MenuUrlLink', {
         'Ext.layout.container.Form',
         'Ext.layout.container.HBox',
         'Ext.toolbar.Separator',
-        'DP.dp.base.grid.Panel',
-        'DP.dp.base.grid.column.Text',
-        'DP.dp.component.form.GridSimpleForm',
-        'DP.dp.component.grid.column.Status',
-        'DP.dp.store.admin.MenuUrlLink',
-        'DP.dp.view.system.menuurllink.MenuUrlLinkController',
-        'DP.dp.view.system.menuurllink.MenuUrlLinkModel'
+        'DP.base.grid.Panel',
+        'DP.base.grid.column.Text',
+        'DP.component.form.GridSimpleForm',
+        'DP.component.grid.column.Status',
+        'DP.store.admin.MenuUrlLink',
+        'DP.view.system.menuurllink.MenuUrlLinkController',
+        'DP.view.system.menuurllink.MenuUrlLinkModel'
     ],
 
     viewModel: {
@@ -284,7 +284,7 @@ Ext.define('DP.dp.view.system.menuurllink.MenuUrlLink', {
 
     initComponent: function () {
         var me = this;
-        this.items[0].store = Ext.create('DP.dp.store.admin.MenuUrlLink', {
+        this.items[0].store = Ext.create('DP.store.admin.MenuUrlLink', {
             proxy: {
                 extraParams: {
                     menu_id: me.params['menu_id']

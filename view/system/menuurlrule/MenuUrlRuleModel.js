@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/8.
  */
-Ext.define('DP.dp.view.system.menuurlrule.MenuUrlRuleModel', {
+Ext.define('DP.view.system.menuurlrule.MenuUrlRuleModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.menuurlrule',
 

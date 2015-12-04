@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.model.admin.Group', {
+Ext.define('DP.model.admin.Group', {
     extend: 'Ext.data.Model',
 
     idProperty: 'group_id',

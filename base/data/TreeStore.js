@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/15.
  */
-Ext.define('DP.dp.base.data.TreeStore', {
+Ext.define('DP.base.data.TreeStore', {
     extend: 'Ext.data.TreeStore',
 
     proxy: {

@@ -1,15 +1,15 @@
 /**
  * Created by shanli on 2015/9/9.
  */
-Ext.define('DP.dp.view.system.menuurllink.MenuUrlLinkController', {
-    extend: 'DP.dp.base.ViewController',
+Ext.define('DP.view.system.menuurllink.MenuUrlLinkController', {
+    extend: 'DP.base.ViewController',
     alias: 'controller.menuurllink',
 
     requires: [
-        'DP.dp.base.window.Window',
-        'DP.dp.view.system.menuurllink.MenuEditFormWindow',
-        'DP.dp.view.system.menuurllink.MenuUrlLinkFormWindow',
-        'DP.dp.view.system.menuurlrule.MenuUrlRule'
+        'DP.base.window.Window',
+        'DP.view.system.menuurllink.MenuEditFormWindow',
+        'DP.view.system.menuurllink.MenuUrlLinkFormWindow',
+        'DP.view.system.menuurlrule.MenuUrlRule'
     ],
 
     saveUrl: getUrl('admin.menu-url-link.save'),
@@ -17,7 +17,7 @@ Ext.define('DP.dp.view.system.menuurllink.MenuUrlLinkController', {
     deleteUrl: getUrl('admin.menu-url-link.del'),
 
     init: function () {
-        this.editWindow = DP.dp.view.system.menuurllink.MenuUrlLinkFormWindow;
+        this.editWindow = DP.view.system.menuurllink.MenuUrlLinkFormWindow;
         this.callParent(arguments);
     },
 
@@ -41,7 +41,7 @@ Ext.define('DP.dp.view.system.menuurllink.MenuUrlLinkController', {
         var me = this,
             rec = btn.getWidgetRecord();
         if (rec.get('url.url_id')) {
-            var ruleWindow = Ext.create('DP.dp.base.window.Window', {
+            var ruleWindow = Ext.create('DP.base.window.Window', {
                 title: 'URL规则管理 - ' + rec.get('url.name'),
                 width: 900,
                 height: 500,
@@ -67,7 +67,7 @@ Ext.define('DP.dp.view.system.menuurllink.MenuUrlLinkController', {
         var me = this,
             view = me.getView(),
             values = {},
-            urlEditWindow = Ext.create('DP.dp.view.system.menuurllink.MenuEditFormWindow', {
+            urlEditWindow = Ext.create('DP.view.system.menuurllink.MenuEditFormWindow', {
                 title: 'URL添加',
                 scope: me.getView()
             });
@@ -155,7 +155,7 @@ Ext.define('DP.dp.view.system.menuurllink.MenuUrlLinkController', {
         if (record.get('url.url_id')) {
             var me = this,
                 values = {},
-                urlEditWindow = Ext.create('DP.dp.view.system.menuurllink.MenuEditFormWindow', {
+                urlEditWindow = Ext.create('DP.view.system.menuurllink.MenuEditFormWindow', {
                     title: 'URL编辑 - ' + record.get('url.name'),
                     scope: me.getView()
                 });

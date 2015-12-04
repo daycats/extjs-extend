@@ -2,9 +2,9 @@
  * Created by shanli on 2015/9/6.
  */
 Ext.namespace('Ext.ux.form.HtmlEditor');
-Ext.define('DP.dp.base.form.HtmlEditorVideo', {
+Ext.define('DP.base.form.HtmlEditorVideo', {
     requires: [
-        'DP.dp.base.form.HtmlEditorVideoFormWindow'
+        'DP.base.form.HtmlEditorVideoFormWindow'
     ],
 
     expend: 'Ext.util.Observable',
@@ -19,7 +19,7 @@ Ext.define('DP.dp.base.form.HtmlEditorVideo', {
             scope: this,
             tooltip: '<b>视频插入</b><br />支持：flash地址、html代码、通用代码',
             handler: function (btn) {
-                var editWindow = Ext.create('DP.dp.base.form.HtmlEditorVideoFormWindow', {
+                var editWindow = Ext.create('DP.base.form.HtmlEditorVideoFormWindow', {
                     cmp: me.cmp
                 });
                 btn.up('htmleditor').add(editWindow);

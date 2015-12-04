@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/11.
  */
-Ext.define('DP.dp.base.form.HtmlEditorImageFormWindowController', {
-    extend: 'DP.dp.base.ViewController',
+Ext.define('DP.base.form.HtmlEditorImageFormWindowController', {
+    extend: 'DP.base.ViewController',
     alias: 'controller.html-editor-image-form-window',
 
     init: function () {

@@ -1,14 +1,14 @@
 /**
  * Created by shanli on 2015/9/8.
  */
-Ext.define('DP.dp.store.admin.MenuUrlLink', {
-    extend: 'DP.dp.base.data.Store',
+Ext.define('DP.store.admin.MenuUrlLink', {
+    extend: 'DP.base.data.Store',
 
     requires: [
-        'DP.dp.model.admin.MenuUrlLink'
+        'DP.model.admin.MenuUrlLink'
     ],
 
-    model: 'DP.dp.model.admin.MenuUrlLink',
+    model: 'DP.model.admin.MenuUrlLink',
 
     proxy: {
         url: getUrl('admin.menu-url-link.list')

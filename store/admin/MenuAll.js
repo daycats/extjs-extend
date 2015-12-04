@@ -1,15 +1,15 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.store.admin.MenuAll', {
-    extend: 'DP.dp.base.data.Store',
+Ext.define('DP.store.admin.MenuAll', {
+    extend: 'DP.base.data.Store',
     alias: 'store.admin-menu-all',
 
     requires: [
-        'DP.dp.model.admin.Menu'
+        'DP.model.admin.Menu'
     ],
 
-    model: 'DP.dp.model.admin.Menu',
+    model: 'DP.model.admin.Menu',
 
     proxy: {
         url: getUrl('admin.menu.all')

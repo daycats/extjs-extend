@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/3.
  */
-Ext.define('DP.dp.base.window.Window', {
+Ext.define('DP.base.window.Window', {
     extend: 'Ext.window.Window',
 
     requires: [

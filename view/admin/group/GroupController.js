@@ -1,12 +1,12 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.view.admin.group.GroupController', {
-    extend: 'DP.dp.base.ViewController',
+Ext.define('DP.view.admin.group.GroupController', {
+    extend: 'DP.base.ViewController',
     alias: 'controller.group',
 
     requires: [
-        'DP.dp.view.admin.group.GroupFormWindow'
+        'DP.view.admin.group.GroupFormWindow'
     ],
 
     saveUrl: getUrl('admin.group.save'),
@@ -14,7 +14,7 @@ Ext.define('DP.dp.view.admin.group.GroupController', {
     deleteUrl: getUrl('admin.group.del'),
 
     init: function () {
-        this.editWindow = DP.dp.view.admin.group.GroupFormWindow;
+        this.editWindow = DP.view.admin.group.GroupFormWindow;
         this.callParent(arguments);
     },
 

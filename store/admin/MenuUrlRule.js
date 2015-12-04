@@ -1,14 +1,14 @@
 /**
  * Created by shanli on 2015/9/8.
  */
-Ext.define('DP.dp.store.admin.MenuUrlRule', {
-    extend: 'DP.dp.base.data.Store',
+Ext.define('DP.store.admin.MenuUrlRule', {
+    extend: 'DP.base.data.Store',
 
     requires: [
-        'DP.dp.model.admin.MenuUrlRule'
+        'DP.model.admin.MenuUrlRule'
     ],
 
-    model: 'DP.dp.model.admin.MenuUrlRule',
+    model: 'DP.model.admin.MenuUrlRule',
 
     proxy: {
         url: getUrl('admin.menu-url-rule.list')

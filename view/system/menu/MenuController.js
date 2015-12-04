@@ -1,14 +1,14 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.view.system.menu.MenuController', {
-    extend: 'DP.dp.base.ViewController',
+Ext.define('DP.view.system.menu.MenuController', {
+    extend: 'DP.base.ViewController',
     alias: 'controller.menu',
 
     requires: [
-        'DP.dp.base.window.Window',
-        'DP.dp.view.system.menu.MenuFormWindow',
-        'DP.dp.view.system.menuurllink.MenuUrlLink'
+        'DP.base.window.Window',
+        'DP.view.system.menu.MenuFormWindow',
+        'DP.view.system.menuurllink.MenuUrlLink'
     ],
 
     idProperty: 'menu_id',
@@ -17,7 +17,7 @@ Ext.define('DP.dp.view.system.menu.MenuController', {
     deleteUrl: getUrl('admin.menu.del'),
 
     init: function () {
-        this.editWindow = DP.dp.view.system.menu.MenuFormWindow;
+        this.editWindow = DP.view.system.menu.MenuFormWindow;
         this.callParent(arguments);
     },
 
@@ -76,7 +76,7 @@ Ext.define('DP.dp.view.system.menu.MenuController', {
      */
     onClickUrlManager: function (btn) {
         var rec = btn.getWidgetRecord(),
-            urlWindow = Ext.create('DP.dp.base.window.Window', {
+            urlWindow = Ext.create('DP.base.window.Window', {
                 title: 'URL管理 - ' + rec.get('text'),
                 width: 900,
                 height: 500,

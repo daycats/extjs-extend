@@ -2,9 +2,9 @@
  * Created by shanli on 2015/9/6.
  */
 Ext.namespace('Ext.ux.form.HtmlEditor');
-Ext.define('DP.dp.base.form.HtmlEditorImage', {
+Ext.define('DP.base.form.HtmlEditorImage', {
     requires: [
-        'DP.dp.base.form.HtmlEditorImageFormWindow'
+        'DP.base.form.HtmlEditorImageFormWindow'
     ],
 
     expend: 'Ext.util.Observable',
@@ -33,7 +33,7 @@ Ext.define('DP.dp.base.form.HtmlEditorImage', {
             scope: this,
             tooltip: '<b>图片上传</b><br />使用支持HTML5浏览器可以多文件上传',
             handler: function (btn) {
-                var editWindow = Ext.create('DP.dp.base.form.HtmlEditorImageFormWindow', me.config);
+                var editWindow = Ext.create('DP.base.form.HtmlEditorImageFormWindow', me.config);
                 btn.up('htmleditor').add(editWindow);
                 editWindow.show();
             }

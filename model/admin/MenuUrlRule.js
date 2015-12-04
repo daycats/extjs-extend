@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/8.
  */
-Ext.define('DP.dp.model.admin.MenuUrlRule', {
+Ext.define('DP.model.admin.MenuUrlRule', {
     extend: 'Ext.data.Model',
 
     idProperty: 'rule_id',

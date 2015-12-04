@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/26.
  */
-Ext.define('DP.dp.view.admin.user.UserModel', {
+Ext.define('DP.view.admin.user.UserModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.user',
 

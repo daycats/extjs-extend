@@ -1,14 +1,14 @@
 /**
  * Created by shanli on 2015/8/23.
  */
-Ext.define('DP.dp.store.admin.User', {
-    extend: 'DP.dp.base.data.Store',
+Ext.define('DP.store.admin.User', {
+    extend: 'DP.base.data.Store',
 
     requires: [
-        'DP.dp.model.admin.User'
+        'DP.model.admin.User'
     ],
 
-    model: 'DP.dp.model.admin.User',
+    model: 'DP.model.admin.User',
 
     proxy: {
         url: getUrl('admin.user.list')

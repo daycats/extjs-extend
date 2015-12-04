@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/2.
  */
-Ext.define('DP.dp.view.system.config.ConfigModel', {
+Ext.define('DP.view.system.config.ConfigModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.config',
 

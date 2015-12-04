@@ -4,43 +4,64 @@
  * details.
  */
 Ext.tip.QuickTipManager.init();
-Ext.define('DP.dp.Application', {
+Ext.Loader.setConfig({
+    enable: true,
+    paths: {
+        'DP.base': '../dp/base',
+        'DP.component': '../dp/component',
+        'DP.controller': '../dp/controller',
+        'DP.model': '../dp/model',
+        'DP.store': '../dp/store',
+        'DP.view': '../dp/view'
+    }
+});
+Ext.define('DP.Application', {
     extend: 'Ext.app.Application',
 
-    name: 'DP',
-
-    stores: [
-        'DP.dp.store.Pagination'
+    requires: [
+        'Ext.ux.TabReorderer',
+        'Ext.ux.TabCloseMenu',
+        'DP.base.form.HtmlEditorImage',
+        'DP.base.form.HtmlEditorVideo'
     ],
 
-    controllers: ['DP.dp.controller.Navigation'],
+    autoCreateViewport: 'DP.view.main.Main',
+
+    stores: [
+        'DP.store.Pagination'
+    ],
+
+    controllers: ['DP.controller.Navigation'],
 
     defaultToken: 'main-tabs',
 
+    init: function () {
+        DP.name = this.getConfig('name');
+        this.callParent(arguments);
+    },
     launch: function () {
-        var me = this,
-            app = Ext.namespace('DP').getApplication();
+        var me = this;
         window['needActiveTab'] = true;
         Ext.get('loading').remove();
 
         // 注册事件
 
         // 监听错误监听事件
-        app.on('error', function (msg, title) {
+        me.on('error', function (msg, title) {
             me.alert(msg, title);
         });
 
         // 监听显示登录创建事件
-        app.on('showLogin', function () {
+        me.on('showLogin', function () {
             var container = Ext.ComponentQuery.query('container#main-body')[0];
             if (container) {
                 container.hide();
-                Ext.create('DP.dp.view.public.login.Login').show();
+                Ext.create('DP.view.public.login.Login').show();
             }
         });
 
         // 监听注销事件
-        app.on('logout', function () {
+        me.on('logout', function () {
             Ext.MessageBox.show({
                 msg: '注销中，请稍后...',
                 progressText: '注销中...',
@@ -60,7 +81,7 @@ Ext.define('DP.dp.Application', {
                     try {
                         var data = Ext.JSON.decode(response.responseText);
                         me.showToast(data.msg, '注销成功');
-                        app.fireEvent('showLogin');
+                        me.fireEvent('showLogin');
                     } catch (e) {
                         me.alert(data.msg);
                     }
@@ -86,7 +107,7 @@ Ext.define('DP.dp.Application', {
                 if (!data.success && 1 == data.code) {
                     Ext.Ajax.abortAll();
                     if (!Ext.ComponentQuery.query('login').length) {
-                        app.fireEvent('showLogin');
+                        me.fireEvent('showLogin');
                     }
                 } else if (2 == data.code) {
                     me.alert('URL：' + options.url + '<br>消息：' + data.msg);
@@ -129,18 +150,22 @@ function getViewClass(className) {
         for (var i = 0, len = viewPackage.length; i < len; i++) {
             if (viewPackage[i]) {
                 name = viewPackage[i];
-                tempArr.push(name.toLowerCase());
-                if ((i + 1) == len) {
-                    tempArr.push(name.substr(0, 1).toUpperCase() + name.substr(1, name.length));
+                if (0 === i && 'DP' == name) {
+                    tempArr.push(name);
+                } else {
+                    tempArr.push(name.toLowerCase());
+                    if ((i + 1) == len) {
+                        tempArr.push(name.substr(0, 1).toUpperCase() + name.substr(1, name.length));
+                    }
                 }
             }
         }
         var classStr = tempArr.join('.');
 
-        if (classStr.indexOf('dp.') === 0) {
-            return 'DP.' + classStr;
+        if (classStr.indexOf('DP.') === 0) {
+            return classStr;
         } else {
-            return 'DP.view.' + classStr;
+            return DP.name + '.view.' + classStr;
         }
     }
     return '';

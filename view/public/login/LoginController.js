@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/3.
  */
-Ext.define('DP.dp.view.public.login.LoginController', {
-    extend: 'DP.dp.base.ViewController',
+Ext.define('DP.view.public.login.LoginController', {
+    extend: 'DP.base.ViewController',
     alias: 'controller.login',
 
     requires: [
@@ -29,7 +29,7 @@ Ext.define('DP.dp.view.public.login.LoginController', {
     onSubmitSuccess: function (form, action) {
         var me = this,
             view = me.getView(),
-            app = Ext.namespace('DP').getApplication(),
+            app = Ext.namespace(DP.name).getApplication(),
             viewModel = app.getMainView().getViewModel();
         try {
             if (action.result.success) {

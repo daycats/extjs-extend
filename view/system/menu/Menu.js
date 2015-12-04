@@ -1,18 +1,18 @@
 /**
  * Created by shanli on 2015/8/31.
  */
-Ext.define('DP.dp.view.system.menu.Menu', {
-    extend: 'DP.dp.component.container.Container',
+Ext.define('DP.view.system.menu.Menu', {
+    extend: 'DP.component.container.Container',
 
     requires: [
-        'DP.dp.base.grid.column.Text',
-        'DP.dp.base.tree.Panel',
-        'DP.dp.component.column.Status',
-        'DP.dp.component.column.Text',
-        'DP.dp.component.form.field.TreeSearch',
-        'DP.dp.store.admin.Menu',
-        'DP.dp.view.system.menu.MenuController',
-        'DP.dp.view.system.menu.MenuModel',
+        'DP.base.grid.column.Text',
+        'DP.base.tree.Panel',
+        'DP.component.column.Status',
+        'DP.component.column.Text',
+        'DP.component.form.field.TreeSearch',
+        'DP.store.admin.Menu',
+        'DP.view.system.menu.MenuController',
+        'DP.view.system.menu.MenuModel',
         'Ext.button.Button',
         'Ext.grid.column.Widget',
         'Ext.tree.Column',
@@ -158,7 +158,7 @@ Ext.define('DP.dp.view.system.menu.Menu', {
 
     initComponent: function () {
         var me = this,
-            store = Ext.create('DP.dp.store.admin.Menu');
+            store = Ext.create('DP.store.admin.Menu');
         this.items[0].store = store;
         this.items[0].tbar = [{
             text: '刷新',

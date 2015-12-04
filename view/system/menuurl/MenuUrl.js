@@ -1,8 +1,8 @@
 /**
  * Created by shanli on 2015/9/8.
  */
-Ext.define('DP.dp.view.system.menuurl.MenuUrl', {
-    extend: 'DP.dp.component.container.Container',
+Ext.define('DP.view.system.menuurl.MenuUrl', {
+    extend: 'DP.component.container.Container',
     xtype: 'menuurl',
 
     requires: [
@@ -13,13 +13,13 @@ Ext.define('DP.dp.view.system.menuurl.MenuUrl', {
         'Ext.layout.container.Form',
         'Ext.layout.container.HBox',
         'Ext.toolbar.Separator',
-        'DP.dp.base.grid.Panel',
-        'DP.dp.base.grid.column.Text',
-        'DP.dp.component.form.GridSimpleForm',
-        'DP.dp.component.grid.column.Status',
-        'DP.dp.store.admin.MenuUrl',
-        'DP.dp.view.system.menuurl.MenuUrlController',
-        'DP.dp.view.system.menuurl.MenuUrlModel'
+        'DP.base.grid.Panel',
+        'DP.base.grid.column.Text',
+        'DP.component.form.GridSimpleForm',
+        'DP.component.grid.column.Status',
+        'DP.store.admin.MenuUrl',
+        'DP.view.system.menuurl.MenuUrlController',
+        'DP.view.system.menuurl.MenuUrlModel'
     ],
 
     viewModel: {
@@ -234,7 +234,7 @@ Ext.define('DP.dp.view.system.menuurl.MenuUrl', {
     ],
 
     initComponent: function () {
-        this.items[0].store = Ext.create('DP.dp.store.admin.MenuUrl');
+        this.items[0].store = Ext.create('DP.store.admin.MenuUrl');
         this.callParent(arguments);
     }
 });

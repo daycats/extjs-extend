@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/8/23.
  */
-Ext.define('DP.dp.model.admin.User', {
+Ext.define('DP.model.admin.User', {
     extend: 'Ext.data.Model',
 
     idProperty: 'user_id',

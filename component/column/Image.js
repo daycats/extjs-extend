@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/9/2.
  */
-Ext.define('DP.dp.component.column.Image', {
+Ext.define('DP.component.column.Image', {
     extend: 'Ext.grid.column.Column',
     xtype: 'imagecolumn',
     text: '图片',

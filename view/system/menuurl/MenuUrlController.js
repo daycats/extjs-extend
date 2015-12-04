@@ -1,14 +1,14 @@
 /**
  * Created by shanli on 2015/9/8.
  */
-Ext.define('DP.dp.view.system.menuurl.MenuUrlController', {
-    extend: 'DP.dp.base.ViewController',
+Ext.define('DP.view.system.menuurl.MenuUrlController', {
+    extend: 'DP.base.ViewController',
     alias: 'controller.menuurl',
 
     requires: [
-        'DP.dp.base.window.Window',
-        'DP.dp.view.system.menuurl.MenuUrlFormWindow',
-        'DP.dp.view.system.menuurlrule.MenuUrlRule'
+        'DP.base.window.Window',
+        'DP.view.system.menuurl.MenuUrlFormWindow',
+        'DP.view.system.menuurlrule.MenuUrlRule'
     ],
 
     idProperty: 'url_id',
@@ -17,7 +17,7 @@ Ext.define('DP.dp.view.system.menuurl.MenuUrlController', {
     deleteUrl: getUrl('admin.menu-url.del'),
 
     init: function () {
-        this.editWindow = DP.dp.view.system.menuurl.MenuUrlFormWindow;
+        this.editWindow = DP.view.system.menuurl.MenuUrlFormWindow;
         this.callParent(arguments);
     },
 
@@ -27,7 +27,7 @@ Ext.define('DP.dp.view.system.menuurl.MenuUrlController', {
     onClickRuleManager: function (btn) {
         var me = this,
             rec = btn.getWidgetRecord();
-        var ruleWindow = Ext.create('DP.dp.base.window.Window', {
+        var ruleWindow = Ext.create('DP.base.window.Window', {
             title: 'URL规则管理 - ' + rec.get('name'),
             width: 900,
             height: 500,

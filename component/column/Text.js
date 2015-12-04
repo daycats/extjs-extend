@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/5/25.
  */
-Ext.define('DP.dp.component.column.Text', {
+Ext.define('DP.component.column.Text', {
     extend: 'Ext.grid.column.Column',
     xtype: 'mycolumntext',
     renderer: function (value) {

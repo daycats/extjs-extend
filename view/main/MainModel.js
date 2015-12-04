@@ -1,7 +1,7 @@
 /**
  * This class is the view model for the Main view of the application.
  */
-Ext.define('DP.dp.view.main.MainModel', {
+Ext.define('DP.view.main.MainModel', {
     extend: 'Ext.app.ViewModel',
 
     alias: 'viewmodel.main',

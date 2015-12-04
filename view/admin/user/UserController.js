@@ -1,12 +1,12 @@
 /**
  * Created by shanli on 2015/8/23.
  */
-Ext.define('DP.dp.view.admin.user.UserController', {
-    extend: 'DP.dp.base.ViewController',
+Ext.define('DP.view.admin.user.UserController', {
+    extend: 'DP.base.ViewController',
     alias: 'controller.user',
 
     requires: [
-        'DP.dp.view.admin.user.UserFormWindow'
+        'DP.view.admin.user.UserFormWindow'
     ],
 
     saveUrl: getUrl('admin.user.save'),
@@ -14,7 +14,7 @@ Ext.define('DP.dp.view.admin.user.UserController', {
     deleteUrl: getUrl('admin.user.del'),
 
     init: function () {
-        this.editWindow = DP.dp.view.admin.user.UserFormWindow;
+        this.editWindow = DP.view.admin.user.UserFormWindow;
         this.callParent(arguments);
     },
 

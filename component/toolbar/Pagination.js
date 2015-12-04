@@ -1,7 +1,7 @@
 /**
  * Created by shanli on 2015/5/26.
  */
-Ext.define('DP.dp.component.toolbar.Pagination', {
+Ext.define('DP.component.toolbar.Pagination', {
     extend: 'Ext.toolbar.Paging',
     alias: 'widget.pagination',
 

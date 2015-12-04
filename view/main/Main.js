@@ -3,7 +3,7 @@
  * "autoCreateViewport" property. That setting automatically applies the "viewport"
  * plugin to promote that instance of this class to the body element.
  */
-Ext.define('DP.dp.view.main.Main', {
+Ext.define('DP.view.main.Main', {
     extend: 'Ext.container.Container',
     requires: [
         'Ext.container.Container',
@@ -15,9 +15,9 @@ Ext.define('DP.dp.view.main.Main', {
         'Ext.util.Cookies',
         'Ext.ux.TabCloseMenu',
         'Ext.ux.TabReorderer',
-        'DP.dp.view.main.MainController',
-        'DP.dp.view.main.MainModel',
-        'DP.dp.view.navigation.Navigation'
+        'DP.view.main.MainController',
+        'DP.view.main.MainModel',
+        'DP.view.navigation.Navigation'
     ],
 
     xtype: 'app-main',
