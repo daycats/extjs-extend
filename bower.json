@@ -1,6 +1,6 @@
 {
   "name": "extjs-extend",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "homepage": "https://github.com/myweishanli/extjs-extend",
   "authors": [
     "'myweishanli' <'myweishanli@gmail.com'>"
@@ -12,6 +12,9 @@
     "extend"
   ],
   "license": "MIT",
+  "dependencies": {
+    "dp-extjs": ">=1.0.0"
+  },
   "ignore": [
     "**/.*",
     "node_modules",

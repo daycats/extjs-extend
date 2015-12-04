@@ -4,17 +4,6 @@
  * details.
  */
 Ext.tip.QuickTipManager.init();
-Ext.Loader.setConfig({
-    enable: true,
-    paths: {
-        'DP.base': '../dp/base',
-        'DP.component': '../dp/component',
-        'DP.controller': '../dp/controller',
-        'DP.model': '../dp/model',
-        'DP.store': '../dp/store',
-        'DP.view': '../dp/view'
-    }
-});
 Ext.define('DP.Application', {
     extend: 'Ext.app.Application',
 
