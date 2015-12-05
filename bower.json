@@ -12,9 +12,6 @@
     "extend"
   ],
   "license": "MIT",
-  "dependencies": {
-    "dp-extjs": ">=1.0.0"
-  },
   "ignore": [
     "**/.*",
     "node_modules",
