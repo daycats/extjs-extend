@@ -11,6 +11,6 @@ Yii2 ExtJs RBAC 的依赖JS
 Ext.Loader.setPath('DP', '/dp');
 Ext.application({
     extend: 'DP.Application',
-    name: 'YOU NAMESPACE'
+    name: 'your namespace'
 });
 ```
