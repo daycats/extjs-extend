@@ -1541,7 +1541,9 @@ Ext.Microloader = Ext.Microloader || (function () {
                 if (loadOrder) {
                     manifest.loadOrderMap = loadOrderMap;
                 }
-
+                js.push({
+                    path: extJsConfig.appPath
+                });
                 loadResources(css.concat(js), true);
             },
 

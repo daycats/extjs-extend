@@ -8,7 +8,7 @@ Ext.Loader.setConfig({
     enable: true,
     paths: {
         'Ext': '/dp/extjs',
-        'DP': '/dp/extjs-extend',
+        'DP': '/dp/extjs-extend'
     }
 });
 Ext.manifest.locale = 'zh_CN';
