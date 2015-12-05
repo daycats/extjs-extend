@@ -4,6 +4,14 @@
  * details.
  */
 Ext.tip.QuickTipManager.init();
+Ext.Loader.setConfig({
+    enable: true,
+    paths: {
+        'Ext': '/dp/extjs',
+        'DP': '/dp/extjs-extend',
+    }
+});
+Ext.manifest.locale = 'zh_CN';
 Ext.define('DP.Application', {
     extend: 'Ext.app.Application',
 
