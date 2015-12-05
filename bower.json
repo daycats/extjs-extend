@@ -13,7 +13,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "dp-extjs": "1.0.1"
+    "dp-extjs": "~1.0"
   },
   "ignore": [
     "**/.*",
