@@ -11,6 +11,6 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "bower-asset/dp-extjs": ">=1.0.0"
+        "bower-asset/dp-extjs": ">=1.0.1"
     }
 }
