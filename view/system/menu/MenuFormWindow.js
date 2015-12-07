@@ -66,8 +66,7 @@ Ext.define('DP.view.system.menu.MenuFormWindow', {
         }, {
             xtype: 'textfield',
             fieldLabel: '跳转URL',
-            name: 'url',
-            vtype: 'url'
+            name: 'url'
         }, {
             xtype: 'textareafield',
             fieldLabel: '参数',
