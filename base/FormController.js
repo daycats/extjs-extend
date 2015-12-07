@@ -39,7 +39,7 @@ Ext.define('DP.base.FormController', {
         var me = this;
         Ext.each(form.getForm().getFields().items, function (item) {
             var xtype = item.xtype;
-            if ('textfield' == xtype || 'datefield' == xtype || 'numberfield' == xtype || 'timefield' == xtype || 'spinnerfield' == xtype) {
+            if ('textarea' == xtype || 'textareafield' == xtype || 'textfield' == xtype || 'datefield' == xtype || 'numberfield' == xtype || 'timefield' == xtype || 'spinnerfield' == xtype) {
                 item.addListener('specialkey', function (field, e) {
                     if (13 === e.keyCode) {
                         callback(form);

@@ -9,7 +9,7 @@ Ext.define('DP.component.form.GridSimpleForm', {
             var me = this;
             Ext.each(view.items.items, function(item, index) {
                 var xtype = item.xtype;
-                if ('textfield' == xtype || 'datefield' == xtype || 'numberfield' == xtype || 'timefield' == xtype || 'spinnerfield' == xtype) {
+                if ('textarea' == xtype || 'textareafield' == xtype || 'textfield' == xtype || 'datefield' == xtype || 'numberfield' == xtype || 'timefield' == xtype || 'spinnerfield' == xtype) {
                     item.addListener('specialkey', function(field, e) {
                         if (e.keyCode === 13) {
                             me.searchRefresh();
@@ -44,12 +44,11 @@ Ext.define('DP.component.form.GridSimpleForm', {
     },
     searchRefresh: function () {
         var store = this.up('gridpanel').getStore(),
-            values = this.getValues();
-        for (var key in values) {
-            store.proxy.extraParams[key] = values[key];
-        }
+            params = this.getForm().getFieldValues(true);
+
         store.load({
-            page: 1
+            page: 1,
+            params: params
         });
     }
 });
