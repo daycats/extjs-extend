@@ -139,6 +139,11 @@ Ext.define('DP.view.main.Main', {
                                 hidden: true
                             },
                             {
+                                text: '当前tab信息',
+                                iconCls: 'fa fa-bug',
+                                handler: 'onDebug'
+                            },
+                            {
                                 text: '退出',
                                 iconCls: 'fa fa-sign-out',
                                 handler: 'onLogout'
