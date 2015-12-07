@@ -10,22 +10,112 @@ Ext.define('DP.base.ViewController', {
         'Ext.window.Window'
     ],
 
-    // 主键id字段
+    /**
+     * @event 初始化时触发
+     */
+    EVENT_INIT: 'init',
+    /**
+     * @event 添加之前触发
+     * 返回false停止执行
+     * @todo 未实现
+     */
+    EVENT_BEFORE_INSERT: 'beforeInsert',
+    /**
+     * @event 添加之后触发
+     * @todo 未实现
+     */
+    EVENT_AFTER_INSERT: 'afterInsert',
+    /**
+     * @event 更新之前触发
+     * 返回false停止执行
+     * @todo 未实现
+     */
+    EVENT_BEFORE_UPDATE: 'beforeUpdate',
+    /**
+     * @event 更新之后触发
+     * @todo 未实现
+     */
+    EVENT_AFTER_UPDATE: 'afterUpdate',
+    /**
+     * @event 删除请求之前触发
+     * @todo 未实现
+     */
+    EVENT_BEFORE_DELETE: 'beforeDelete',
+    /**
+     * @event 删除请求之后触发
+     * @todo 未实现
+     */
+    EVENT_AFTER_DELETE: 'afterDelete',
+
+    /**
+     * @event 显示之前
+     * 返回false停止
+     */
+    EVENT_BEFORE_SHOW: 'beforeShow',
+    /**
+     * @event 显示之后
+     */
+    EVENT_AFTER_SHOW: 'afterShow',
+    /**
+     * @event 提交之前 返回false可以阻止提交
+     */
+    EVENT_BEFORE_SUBMIT: 'beforeSubmit',
+    /**
+     * @event 提交成功
+     */
+    EVENT_SUBMIT_SUCCESS: 'submitSuccess',
+    /**
+     * @event 提交失败
+     */
+    EVENT_SUBMIT_FAILURE: 'submitFailure',
+
+    /**
+     * @var string 主键id字段,如果数据模型已经设置了此项可以为null
+     */
     idProperty: null,
-    // 保存url
-    saveUrl: '',
-    // 更新状态url
-    updateStatusUrl: '',
-    // 移动垃圾箱url
+    /**
+     * @var string 保存url
+     */
+    saveUrl: null,
+    /**
+     * @var string 更新状态url
+     */
+    updateStatusUrl: null,
+    /**
+     * @var string 删除url
+     */
     deleteUrl: '',
-    // 表单提交等待标题
+    /**
+     * @var string 表单提交等待标题
+     */
     waitTitle: '数据提交',
-    // 表单提交等待信息
+    /**
+     * @var string 表单提交等待信息
+     */
     waitMsg: '数据保存中...',
-    editWindow: Ext.window.Window,
+    /**
+     * @var string 编辑窗口
+     */
+    editWindow: 'Ext.window.Window',
+    /**
+     * @var Ext.grid.Panel 表格面板
+     */
     gridpanel: null,
 
+    /**
+     * @private 添加窗口
+     */
+    _addWindow: null,
+    /**
+     * @private 编辑窗口
+     */
+    _editWindow: null,
+
     init: function () {
+
+        // 别名设置
+        this.save = this.submit;
+
         var view = this.getView();
         if (!this.gridpanel) {
             this.gridpanel = view.down('gridpanel');
@@ -44,6 +134,37 @@ Ext.define('DP.base.ViewController', {
                 }
             }
         }
+
+        this.fireEvent(this.EVENT_INIT);
+    },
+
+    /**
+     * 显示之前
+     *
+     * @returns {boolean}
+     */
+    beforeShow: function () {
+        return true;
+    },
+    /**
+     * 提交之前
+     *
+     * @returns {boolean}
+     */
+    beforeSubmit: function () {
+        return true;
+    },
+    /**
+     * 提交成功事件
+     */
+    submitSuccess: function (form, action) {
+        return true;
+    },
+    /**
+     * 提交失败事件
+     */
+    submitFailure: function (form, action) {
+        return true;
     },
 
     /**
@@ -57,8 +178,6 @@ Ext.define('DP.base.ViewController', {
             }
         }
     },
-
-    _addWindow: null,
 
     /**
      * 添加窗口
@@ -114,12 +233,13 @@ Ext.define('DP.base.ViewController', {
                 }
             }, this);
         }
+
+        this.on(this.EVENT_AFTER_DELETE);
     },
 
     /**
      * 修改
      */
-    _editWindow: null,
     onEdit: function () {
         var me = this,
             selectionData = this.gridpanel.getSelectionModel().getSelection(),
@@ -311,17 +431,14 @@ Ext.define('DP.base.ViewController', {
     },
 
     /**
-     * 提交成功事件
+     * 提交表单
+     *
+     * @param form
+     * @param params
      */
-    onSubmitSuccess: function (form, action) {},
-    /**
-     * 提交失败事件
-     */
-    onSubmitFailure: function (form, action) {},
-
     submit: function (form, params) {
         var me = this;
-        if (form.isValid()) {
+        if (this.beforeSubmit() && form.isValid()) {
             form.submit({
                 url: me.saveUrl,
                 waitMsgTarget: true,
@@ -330,38 +447,36 @@ Ext.define('DP.base.ViewController', {
                 submitEmptyText: false,
                 params: params,
                 success: function (form, action) {
-                    try {
-                        me.showToast(action.result.msg, '成功');
-                        me.onRefresh();
-                        if ('1' == getConfig('system.window.saveClose')) {
-                            form.reset();
-                            form.owner.ownerCt.hide();
+                    if (me.submitSuccess(form, action)) {
+                        try {
+                            me.showToast(action.result.msg, '成功');
+                            me.onRefresh();
+                            if ('1' == getConfig('system.window.saveClose')) {
+                                form.reset();
+                                form.owner.ownerCt.hide();
+                            }
+                        } catch (e) {
+                            Ext.Msg.show({
+                                title: '数据解析失败',
+                                msg: e,
+                                icon: Ext.Msg.ERROR,
+                                buttons: Ext.Msg.YES
+                            });
                         }
-                    } catch (e) {
-                        Ext.Msg.show({
-                            title: '数据解析失败',
-                            msg: e,
-                            icon: Ext.Msg.ERROR,
-                            buttons: Ext.Msg.YES
-                        });
-                    }
-                    if (Ext.isFunction(me.onSubmitSuccess)) {
-                        me.onSubmitSuccess(form, action);
                     }
                 },
                 failure: function (form, action) {
-                    switch (action.failureType) {
-                        case Ext.form.action.Action.CLIENT_INVALID:
-                            Ext.Msg.alert('失败', '表单字段有非法值');
-                            break;
-                        case Ext.form.action.Action.CONNECT_FAILURE:
-                            Ext.Msg.alert('失败', '提交失败');
-                            break;
-                        case Ext.form.action.Action.SERVER_INVALID:
-                            Ext.Msg.alert('失败', action.result.msg);
-                    }
-                    if (Ext.isFunction(me.onSubmitFailure)) {
-                        me.onSubmitFailure(form, action);
+                    if (me.submitFailure(form, action)) {
+                        switch (action.failureType) {
+                            case Ext.form.action.Action.CLIENT_INVALID:
+                                Ext.Msg.alert('失败', '表单字段有非法值');
+                                break;
+                            case Ext.form.action.Action.CONNECT_FAILURE:
+                                Ext.Msg.alert('失败', '提交失败');
+                                break;
+                            case Ext.form.action.Action.SERVER_INVALID:
+                                Ext.Msg.alert('失败', action.result.msg);
+                        }
                     }
                 }
             });
@@ -379,7 +494,7 @@ Ext.define('DP.base.ViewController', {
         if (form.items) {
             Ext.each(form.items.items, function (item) {
                 var xtype = item.xtype;
-                if ('textfield' == xtype || 'datefield' == xtype || 'numberfield' == xtype || 'timefield' == xtype || 'spinnerfield' == xtype) {
+                if ('textarea' == xtype || 'textareafield' == xtype || 'textfield' == xtype || 'datefield' == xtype || 'numberfield' == xtype || 'timefield' == xtype || 'spinnerfield' == xtype) {
                     item.addListener('specialkey', function (field, e) {
                         if (13 === e.keyCode) {
                             callback(form);
@@ -392,8 +507,9 @@ Ext.define('DP.base.ViewController', {
     },
 
     showWindow: function (win, title) {
-        var me = this;
-        if (me.editWindow) {
+        var me = this,
+            result = null;
+        if (this.beforeShow() && me.editWindow) {
             if (!win || 'destroy' == win.closeAction) {
                 if (win && 'destroy' == win.closeAction) {
                     win.close();
@@ -412,10 +528,11 @@ Ext.define('DP.base.ViewController', {
             win.setTitle(title);
             win.show();
 
-            return win;
-        } else {
-            return null;
+            result = win;
         }
+        this.fireEvent(this.EVENT_AFTER_SHOW, result);
+
+        return result;
     },
 
     showToast: function (content, title) {
