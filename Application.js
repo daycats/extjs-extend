@@ -7,11 +7,12 @@ Ext.tip.QuickTipManager.init();
 Ext.Loader.setConfig({
     enable: true,
     paths: {
-        'Ext': '/dp/extjs',
-        'DP': '/dp/extjs-extend'
+        'Ext': extJsConfig['path'],
+        'Ext.ux': extJsConfig['path'] + '/src/ux'
     }
 });
 Ext.manifest.locale = 'zh_CN';
+Ext.Loader.loadScript(Ext.Loader.getPath('DP.helper.ArrayHelper'));
 Ext.define('DP.Application', {
     extend: 'Ext.app.Application',
 

@@ -249,7 +249,9 @@ Ext.define('DP.view.navigation.NavigationController', {
                         title: title,
                         closable: closable,
                         xtype: 'panel',
-                        layout: 'fit'
+                        layout: 'fit',
+                        viewPackage: viewPackage,
+                        menu: data
                     });
                     tabpanel.setActiveItem(tab);
                     tab.mask('拼命加载中，请耐心等待...');
@@ -280,8 +282,8 @@ Ext.define('DP.view.navigation.NavigationController', {
                             }
                         }
                     } else {
-                        // tab中添加新的panel
                         var className = getViewClass(viewPackage);
+                        // tab中添加新的panel
                         Ext.require(className, function (optional) {
                             tab.unmask();
                             if (optional) {

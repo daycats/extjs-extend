@@ -1,5 +1,5 @@
 var Ext = Ext || {};
-Ext.manifest = Ext.manifest || "/dp/extjs-extend/bootstrap.json";
+Ext.manifest = Ext.manifest || extJsConfig['bootstrapJsonPath'];
 // @tag core
 // @define Ext.Boot
 
@@ -1541,8 +1541,20 @@ Ext.Microloader = Ext.Microloader || (function () {
                 if (loadOrder) {
                     manifest.loadOrderMap = loadOrderMap;
                 }
+
+                for (var j = 0; j < js.length; j++) {
+                    if (js[j].path) {
+                        js[j].path = js[j].path.replace('{extJsPath}', extJsConfig['path']);
+                    }
+                }
+                for (var k = 0; k < css.length; k++) {
+                    if (css[k].path) {
+                        css[k].path = css[k].path.replace('{extJsExtendPath}', extJsConfig['extendPath']);
+                        css[k].path = css[k].path.replace('{bootstrapCssPath}', extJsConfig['bootstrapCssPath']);
+                    }
+                }
                 js.push({
-                    path: extJsConfig.appPath
+                    path: extJsConfig['appJsPath']
                 });
                 loadResources(css.concat(js), true);
             },
