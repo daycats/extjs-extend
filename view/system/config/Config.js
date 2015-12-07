@@ -46,7 +46,7 @@ Ext.define('DP.view.system.config.Config', {
         }, {
             xtype: 'textfield',
             fieldLabel: '加载提示语',
-            name: 'config[system.loading_text]',
+            name: 'config[system.loadingText]',
             allowBlank: false
         }, {
             xtype: 'textfield',
