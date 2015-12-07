@@ -431,6 +431,15 @@ Ext.define('DP.base.ViewController', {
     },
 
     /**
+     * 提交成功事件
+     */
+    onSubmitSuccess: function (form, action) {},
+    /**
+     * 提交失败事件
+     */
+    onSubmitFailure: function (form, action) {},
+
+    /**
      * 提交表单
      *
      * @param form
@@ -447,36 +456,38 @@ Ext.define('DP.base.ViewController', {
                 submitEmptyText: false,
                 params: params,
                 success: function (form, action) {
-                    if (me.submitSuccess(form, action)) {
-                        try {
-                            me.showToast(action.result.msg, '成功');
-                            me.onRefresh();
-                            if ('1' == getConfig('system.window.saveClose')) {
-                                form.reset();
-                                form.owner.ownerCt.hide();
-                            }
-                        } catch (e) {
-                            Ext.Msg.show({
-                                title: '数据解析失败',
-                                msg: e,
-                                icon: Ext.Msg.ERROR,
-                                buttons: Ext.Msg.YES
-                            });
+                    try {
+                        me.showToast(action.result.msg, '成功');
+                        me.onRefresh();
+                        if ('1' == getConfig('system.window.saveClose')) {
+                            form.reset();
+                            form.owner.ownerCt.hide();
                         }
+                    } catch (e) {
+                        Ext.Msg.show({
+                            title: '数据解析失败',
+                            msg: e,
+                            icon: Ext.Msg.ERROR,
+                            buttons: Ext.Msg.YES
+                        });
+                    }
+                    if (Ext.isFunction(me.onSubmitSuccess)) {
+                        me.onSubmitSuccess(form, action);
                     }
                 },
                 failure: function (form, action) {
-                    if (me.submitFailure(form, action)) {
-                        switch (action.failureType) {
-                            case Ext.form.action.Action.CLIENT_INVALID:
-                                Ext.Msg.alert('失败', '表单字段有非法值');
-                                break;
-                            case Ext.form.action.Action.CONNECT_FAILURE:
-                                Ext.Msg.alert('失败', '提交失败');
-                                break;
-                            case Ext.form.action.Action.SERVER_INVALID:
-                                Ext.Msg.alert('失败', action.result.msg);
-                        }
+                    switch (action.failureType) {
+                        case Ext.form.action.Action.CLIENT_INVALID:
+                            Ext.Msg.alert('失败', '表单字段有非法值');
+                            break;
+                        case Ext.form.action.Action.CONNECT_FAILURE:
+                            Ext.Msg.alert('失败', '提交失败');
+                            break;
+                        case Ext.form.action.Action.SERVER_INVALID:
+                            Ext.Msg.alert('失败', action.result.msg);
+                    }
+                    if (Ext.isFunction(me.onSubmitFailure)) {
+                        me.onSubmitFailure(form, action);
                     }
                 }
             });
