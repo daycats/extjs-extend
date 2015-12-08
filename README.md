@@ -8,12 +8,7 @@ Yii2 ExtJs RBAC 的依赖JS
 
 自定义`app.js`
 ```javascript
-Ext.Loader.setConfig({
-    enable: true,
-    paths: {
-        'DP': extJsConfig['extendPath']
-    }
-});
+Ext.Loader.setPath('DP', extJsConfig['extendPath']);
 Ext.application({
     name: 'your namespace',
     extend: 'DP.Application'

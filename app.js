@@ -3,12 +3,7 @@
  * needed for your application, but these edits will have to be merged by
  * Sencha Cmd when upgrading.
  */
-Ext.Loader.setConfig({
-    enable: true,
-    paths: {
-        'DP': extJsConfig['extendPath']
-    }
-});
+Ext.Loader.setPath('DP', extJsConfig['extendPath']);
 Ext.application({
     name: 'MyApp',
 
