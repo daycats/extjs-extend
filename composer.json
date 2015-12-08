@@ -11,6 +11,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "bower-asset/dp-extjs": "~1.0"
+        "bower-asset/dp-extjs": "~1.0",
+        "myweishanli/yii2-extjs-rbac": "~1.0.3"
     }
 }
