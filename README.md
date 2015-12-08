@@ -11,13 +11,11 @@ Yii2 ExtJs RBAC 的依赖JS
 Ext.Loader.setConfig({
     enable: true,
     paths: {
-        'DP': '/dp/extjs-extend',
-        'Ext.ux': '/dp/extjs/src/ux'
+        'DP': extJsConfig['extendPath']
     }
 });
 Ext.application({
     name: 'your namespace',
     extend: 'DP.Application'
 });
-
 ```
