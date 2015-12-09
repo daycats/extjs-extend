@@ -308,14 +308,14 @@ Ext.define('DP.base.ViewController', {
      *
      * @returns {*}
      */
-    onExpand: function() {
+    onExpand: function () {
         this.gridpanel.expandAll();
     },
 
     /**
      * 树形收起
      */
-    onCollapse: function() {
+    onCollapse: function () {
         this.gridpanel.collapseAll();
     },
 
@@ -423,7 +423,7 @@ Ext.define('DP.base.ViewController', {
                 break;
             }
             form = view.up('form', i);
-        } while(!form);
+        } while (!form);
 
         if (form) {
             this.submit(form.getForm());
@@ -433,11 +433,13 @@ Ext.define('DP.base.ViewController', {
     /**
      * 提交成功事件
      */
-    onSubmitSuccess: function (form, action) {},
+    onSubmitSuccess: function (form, action) {
+    },
     /**
      * 提交失败事件
      */
-    onSubmitFailure: function (form, action) {},
+    onSubmitFailure: function (form, action) {
+    },
 
     /**
      * 提交表单
@@ -449,13 +451,13 @@ Ext.define('DP.base.ViewController', {
         var me = this;
         if (this.beforeSubmit() && form.isValid()) {
             form.submit({
-                url: me.saveUrl,
+                url: form.url ? form.url : me.saveUrl,
                 waitMsgTarget: true,
-                waitTitle: me.waitTitle,
-                waitMsg: me.waitMsg,
+                waitTitle: form.waitTitle ? form.waitTitle : me.waitTitle,
+                waitMsg: form.waitMsg ? form.waitMsg : me.waitMsg,
                 submitEmptyText: false,
                 params: params,
-                success: function (form, action) {
+                success: form.success ? form.success : function (form, action) {
                     try {
                         me.showToast(action.result.msg, '成功');
                         me.onRefresh();
@@ -475,7 +477,7 @@ Ext.define('DP.base.ViewController', {
                         me.onSubmitSuccess(form, action);
                     }
                 },
-                failure: function (form, action) {
+                failure: form.failure ? form.failure: function (form, action) {
                     switch (action.failureType) {
                         case Ext.form.action.Action.CLIENT_INVALID:
                             Ext.Msg.alert('失败', '表单字段有非法值');
@@ -518,14 +520,31 @@ Ext.define('DP.base.ViewController', {
     },
 
     showWindow: function (win, title) {
-        var me = this,
-            result = null;
+        var me = this;
         if (this.beforeShow() && me.editWindow) {
+            win = this.createWindow(me.editWindow, title);
+        }
+        this.fireEvent(this.EVENT_AFTER_SHOW, win);
+
+        return win;
+    },
+
+    /**
+     * 创建窗口
+     *
+     * @param className window类名
+     * @param title 标题
+     * @returns {*}
+     */
+    createWindow: function (className, title) {
+        var me = this,
+            win;
+        if (className) {
             if (!win || 'destroy' == win.closeAction) {
                 if (win && 'destroy' == win.closeAction) {
                     win.close();
                 }
-                win = Ext.create(me.editWindow);
+                win = Ext.create(className);
                 me.getView().add(win);
                 me.addFormEnterEvent(win.down('form'), function (form) {
                     me.submit(form);
@@ -538,12 +557,9 @@ Ext.define('DP.base.ViewController', {
             }
             win.setTitle(title);
             win.show();
-
-            result = win;
         }
-        this.fireEvent(this.EVENT_AFTER_SHOW, result);
 
-        return result;
+        return win;
     },
 
     showToast: function (content, title) {
