@@ -44,11 +44,12 @@ Ext.define('DP.component.form.GridSimpleForm', {
     },
     searchRefresh: function () {
         var store = this.up('gridpanel').getStore(),
-            params = this.getForm().getFieldValues(true);
+            params = this.getForm().getValues();
 
-        store.load({
-            page: 1,
-            params: params
-        });
+        for (var key in params) {
+            store.proxy.extraParams[key] = params[key];
+        }
+
+        store.loadPage(1);
     }
 });

@@ -24,3 +24,10 @@ Ext.application({
     extend: 'DP.Application'
 });
 ```
+
+更新日志
+------------
+
+### Version Dev Master
+
+- 修复翻页时没传搜索参数
