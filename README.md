@@ -28,6 +28,7 @@ Ext.application({
 更新日志
 ------------
 
-### Version Dev Master
+### Version 1.0.4 (2016.1.12)
 
 - 修复翻页时没传搜索参数
+- 修复拖拽菜单排序

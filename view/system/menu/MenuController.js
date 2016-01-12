@@ -106,14 +106,13 @@ Ext.define('DP.view.system.menu.MenuController', {
         var me = this,
             ids = [];
         if (data.records.length) {
-            Ext.each(data.records, function (item) {
-                ids.push(item.get('menu_id'));
-            });
             var params = {
-                menu_ids: ids.join(','),
                 position: dragPosition,
                 target_menu_id: overModel.get('menu_id')
             };
+            Ext.each(data.records, function (item) {
+                params['menu_ids[]'] = item.get('menu_id');
+            });
 
             Ext.MessageBox.show({
                 msg: '排序调整，数据同步中...',
